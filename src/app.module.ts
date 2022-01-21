@@ -14,6 +14,7 @@ connectionString += "/" + process.env.DB_DATABASE_NAME;
     TypeOrmModule.forRoot({
       type: 'mongodb',
       url: connectionString,
+      useUnifiedTopology: true,
       entities: [Metric],
       synchronize: true,
     }),
