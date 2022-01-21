@@ -12,6 +12,7 @@ export class MetricService {
     ) {}
 
     async create(metricDto: MetricDto):Promise<Metric> {
+        metricDto.date = new Date();
         return this.metricRepository.save(metricDto);
     }
 
