@@ -9,8 +9,8 @@ export class MetricController {
     }
 
     @Post()
-    create(@Body() metricDto: MetricDto): Promise<Metric> {
-        return this.metricService.create(metricDto);
+    async create(@Body() metricDto: MetricDto) {
+        await this.metricService.create(metricDto);
     }
 
     @Get()
