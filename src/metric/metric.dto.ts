@@ -1,8 +1,12 @@
 export class MetricDto {
-    readonly id: number;
-    date: Date;
-    readonly sessionId: string;
-    readonly amount: number;
-    readonly apr: number;
-    readonly cost: number;
+
+    constructor(
+        public id: number,
+        public date: Date,
+        public sessionId: string,
+        public amount: number,
+        public apr: number,
+        public cost: number) {
+    }
+
 }
