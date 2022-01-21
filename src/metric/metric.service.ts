@@ -6,8 +6,7 @@ import {Metric} from './metric.entity';
 @Injectable()
 export class MetricService {
     constructor(
-        @InjectRepository(Metric)
-        private readonly metricRepository: Repository<Metric>
+        @InjectRepository(Metric) private readonly metricRepository: Repository<Metric>
     ) {}
 
     async create(metric: Metric):Promise<Metric> {

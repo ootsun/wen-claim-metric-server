@@ -7,8 +7,14 @@ import {MetricFactory} from './metric.factory';
 import {MetricConverter} from './metric.converter';
 
 @Module({
-    imports: [TypeOrmModule.forFeature([Metric])],
-    providers: [MetricService, MetricFactory, MetricConverter],
+    imports: [
+        TypeOrmModule.forFeature([Metric])
+    ],
+    providers: [
+        MetricService,
+        MetricFactory,
+        MetricConverter
+    ],
     controllers: [MetricController],
 })
 export class MetricModule {}
