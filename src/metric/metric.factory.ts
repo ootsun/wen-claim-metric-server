@@ -8,6 +8,7 @@ export class MetricFactory {
     create(command: MetricCommand): Metric {
         const metric = new Metric();
         metric.date = new Date();
+        metric.sessionId = command.sessionId;
         metric.amount = command.amount;
         metric.apr = command.apr;
         metric.cost = command.cost;
