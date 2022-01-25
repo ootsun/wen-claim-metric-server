@@ -1,8 +1,8 @@
 import {ForbiddenException, Injectable, NotFoundException} from '@nestjs/common';
 import {PassportStrategy} from '@nestjs/passport';
 import {Strategy} from 'passport-local';
-import {User} from '../users/user.entity';
-import {UserService} from '../users/user.service';
+import {User} from '../user/user.entity';
+import {UserService} from '../user/user.service';
 import bcrypt from 'bcrypt';
 
 @Injectable()
