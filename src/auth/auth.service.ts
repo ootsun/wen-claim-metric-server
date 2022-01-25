@@ -16,4 +16,10 @@ export class AuthService {
             token: this.jwtService.sign(payload)
         }
     }
+
+    async refreshToken(user: User) {
+        return {
+            token: this.jwtService.sign(user)
+        }
+    }
 }

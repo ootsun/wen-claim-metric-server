@@ -2,14 +2,14 @@ import {ForbiddenException, Injectable, NotFoundException} from '@nestjs/common'
 import {PassportStrategy} from '@nestjs/passport';
 import {Strategy} from 'passport-local';
 import {User} from '../users/user.entity';
-import {UsersService} from '../users/users.service';
+import {UserService} from '../users/user.service';
 import bcrypt from 'bcrypt';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
 
     constructor(
-        private readonly usersService: UsersService
+        private readonly usersService: UserService
     ) {
         super();
     }
