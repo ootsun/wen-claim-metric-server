@@ -10,16 +10,18 @@ export class AuthService {
     ) {
     }
 
-    async login(user: User) {
+    login(user: User) {
+        return this.createToken(user);
+    }
+
+    refreshToken(user: User) {
+        return this.createToken(user);
+    }
+
+    createToken(user: User) {
         const payload = {id: user.id, username: user.username};
         return {
             token: this.jwtService.sign(payload)
-        }
-    }
-
-    async refreshToken(user: User) {
-        return {
-            token: this.jwtService.sign(user)
         }
     }
 }
