@@ -3,7 +3,7 @@ import {PassportStrategy} from '@nestjs/passport';
 import {Strategy} from 'passport-local';
 import {User} from '../user/user.entity';
 import {UserService} from '../user/user.service';
-import bcrypt from 'bcrypt';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class LocalStrategy extends PassportStrategy(Strategy) {
@@ -15,8 +15,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     }
 
     // Whatever I return here will be available via req.user (controller (@Request())
-    async validate(email: string, password: string): Promise<User> {
-        const user = await this.usersService.findOne(email);
+    async validate(username: string, password: string): Promise<User> {
+        const user = await this.usersService.findOne(username);
         if (!user) {
             throw new NotFoundException();
         }

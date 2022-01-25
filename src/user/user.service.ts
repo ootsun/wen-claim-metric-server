@@ -11,8 +11,8 @@ export class UserService {
     ) {
     }
 
-    findOne(email: string): Promise<User | undefined> {
-        return this.userRepository.findOne({email});
+    findOne(username: string): Promise<User | undefined> {
+        return this.userRepository.findOne({username: username});
     }
 
     update(user: User): Promise<User | undefined> {

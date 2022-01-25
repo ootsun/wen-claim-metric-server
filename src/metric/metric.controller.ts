@@ -1,6 +1,5 @@
 import {Body, Controller, Get, Post, UseGuards} from '@nestjs/common';
 import {MetricService} from './metric.service';
-import {Metric} from './metric.entity';
 import {MetricDto} from './metric.dto';
 import {MetricCommand} from './metric.command';
 import {MetricConverter} from './metric.converter';
