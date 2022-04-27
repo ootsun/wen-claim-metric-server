@@ -5,6 +5,8 @@ import {MetricCommand} from './metric.command';
 import {MetricConverter} from './metric.converter';
 import {MetricFactory} from './metric.factory';
 import {JwtAuthGuard} from '../auth/jwt-auth.guard';
+import {PaginationCommand} from './pagination.command';
+import {MetricPaginationDto} from './metric-pagination.dto';
 
 @Controller("/metrics")
 export class MetricController {
@@ -22,7 +24,13 @@ export class MetricController {
     @UseGuards(JwtAuthGuard)
     @Get()
     async findAll(): Promise<MetricDto[]> {
-        const metrics = await this.metricService.findAll()
+        const metrics = await this.metricService.findAll();
         return metrics.map(metric => this.metricConverter.convert(metric));
+    }
+
+    @UseGuards(JwtAuthGuard)
+    @Post("pagination")
+    async findAllPaginated(@Body() pagination: PaginationCommand): Promise<MetricPaginationDto> {
+        return await this.metricService.findAllPaginated(pagination);
     }
 }
